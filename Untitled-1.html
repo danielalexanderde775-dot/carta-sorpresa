@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para ti, Karol ♡</title>
+<style>
+:root{--rosa:#ff5c9a;--suave:#ffd6e6;--crema:#fff8f3;--vino:#7a2a4a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Georgia,"Palatino Linotype",serif;color:var(--vino);
+ background:linear-gradient(160deg,#ffe3ee,#ffc2da 55%,#ff9fc4);overflow-x:hidden}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ padding:24px;text-align:center;opacity:0;visibility:hidden;transition:opacity 1s ease,visibility 1s}
+.screen.on{opacity:1;visibility:visible}
+#s3{justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch}
+h1{font-size:clamp(1.8rem,7vw,2.6rem);font-style:italic;margin-bottom:10px}
+.sub{max-width:300px;line-height:1.5;margin-bottom:22px}
+button{font:inherit;cursor:pointer;border:0;border-radius:30px;padding:14px 30px;color:#fff;
+ background:linear-gradient(135deg,#ff7db0,var(--rosa));box-shadow:0 6px 18px rgba(255,92,154,.45);transition:transform .2s}
+button:active{transform:scale(.95)}
+#s1{background:radial-gradient(ellipse at 50% 40%,#2b0a1e,#07030a 70%);color:#ffd6e6}
+#s1 .sub{color:#f7c6da}
+canvas{width:min(94vw,400px);height:auto;aspect-ratio:400/420;display:block}
+/* corazones flotantes */
+.fh{position:fixed;bottom:-30px;pointer-events:none;color:#ff5c9a;opacity:.7;animation:sube linear forwards;z-index:5}
+@keyframes sube{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+/* sobre */
+.env{position:relative;width:min(78vw,300px);aspect-ratio:3/2;margin:26px 0 18px;cursor:pointer;
+ animation:flota 3s ease-in-out infinite}
+@keyframes flota{50%{transform:translateY(-8px)}}
+.env.open{animation:none}
+.env .back,.env .front,.env .flap,.env .paper{position:absolute;inset:0}
+.back{background:#f4a9c4;border-radius:6px}
+.paper{background:var(--crema);margin:8px 12px;border-radius:4px;transition:transform 1s ease .6s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.front{background:#ffc1d8;border-radius:6px;clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%)}
+.flap{background:#ff8fb8;border-radius:6px 6px 0 0;clip-path:polygon(0 0,100% 0,50% 55%);
+ transform-origin:top;transition:transform .7s ease,z-index 0s .35s;z-index:3}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env.open .paper{transform:translateY(-55%)}
+.seal{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:4;font-size:1.6rem;color:#d6336c;transition:opacity .3s}
+.env.open .seal{opacity:0}
+.hint{font-size:.95rem;opacity:.8}
+/* carta */
+.carta{width:100%;max-width:560px;margin:20px auto;padding:34px 26px 40px;border-radius:6px;text-align:left;
+ background:linear-gradient(#fffaf5,#fff3ea);box-shadow:0 10px 30px rgba(122,42,74,.25);
+ animation:aparece 1.4s ease both}
+@keyframes aparece{from{opacity:0;transform:translateY(40px)}}
+.carta h2{text-align:center;font-style:italic;font-size:clamp(1.3rem,5.5vw,1.8rem);margin-bottom:22px}
+.carta p{font-size:clamp(1.02rem,4.2vw,1.15rem);line-height:1.75;margin-bottom:1.1em;overflow-wrap:break-word}
+.firma{text-align:right;font-style:italic}
+#s3 button{margin:6px 0 40px}
+@media (prefers-reduced-motion:reduce){
+ *{animation:none!important;transition-duration:.01s!important}
+}
+</style>
+</head>
+<body>
+
+<section class="screen on" id="s1">
+ <canvas id="lienzo" width="400" height="420" aria-label="Corazón animado"></canvas>
+ <h1>Para ti, Karol ♡</h1>
+ <p class="sub">Hay algo que me gustaría contarte, sin prisas y desde el corazón</p>
+ <button id="btnAbrir">Abrir tu carta ♡</button>
+</section>
+
+<section class="screen" id="s2">
+ <h1>Una carta para Karol</h1>
+ <div class="env" id="sobre" role="button" tabindex="0" aria-label="Toca el sobre para abrirlo">
+  <div class="back"></div>
+  <div class="paper"></div>
+  <div class="front"></div>
+  <div class="flap"></div>
+  <div class="seal">♥</div>
+ </div>
+ <p class="hint" id="pista">Toca el sobre para abrirlo</p>
+</section>
+
+<section class="screen" id="s3">
+ <article class="carta">
+  <p>Karol:</p>
+  <p>A veces me pongo a pensar en aquella carta que me diste, en todas esas palabras que escribiste sobre querer conocerme, descubrir las partes de mí que todavía no conocías y ver hasta dónde podía llevarnos el tiempo. Recuerdo que me dijiste que querías seguir conociéndome, y aunque las cosas no terminaron siendo exactamente como imaginábamos en aquel momento, hay algo de tus palabras que todavía llevo conmigo.</p>
+  <p>Porque, si hay algo que no ha cambiado desde entonces, es que yo también quiero conocerte. Quiero descubrir esas pequeñas partes de ti que todavía no conozco, escuchar las historias que aún no me has contado, saber qué pasa por tu mente cuando te quedas distraída y conocer esas cosas que te hacen ser tú. No quiero quedarme solamente con lo que ya conozco de ti, porque siento que todavía hay muchísimo por descubrir y, sinceramente, me gustaría tener la oportunidad de hacerlo.</p>
+  <p>Sé que fuimos demasiado rápido y entiendo que necesitaras tiempo. Quizá, entre tantas ganas de estar contigo y de demostrarte lo mucho que me importabas, olvidé que las cosas bonitas también necesitan espacio para crecer. No quiero que vuelvas a sentirte abrumada por mis sentimientos ni que pienses que tienes que decidir algo antes de estar preparada. No es eso lo que quiero para ti ni para nosotros.</p>
+  <p>Aunque ahora hayamos vuelto a ser amigos, quiero que sepas que mis sentimientos no desaparecieron con ese cambio. Sigo queriéndote de esa manera tan especial, y mis intenciones contigo siguen siendo sinceras. Porque yo no quiero que seas alguien que pase por mi vida durante un ratito; si algún día tengo la oportunidad de estar contigo, quiero que sea para construir algo que dure, para acompañarnos, conocernos cada día un poco más y elegirnos incluso cuando las cosas no sean tan sencillas.</p>
+  <p>Y si algo tengo claro es que mis ojos seguirán buscándote entre la gente. No importa dónde estemos ni cuántas personas haya alrededor, hay algo en mí que siempre termina encontrándote. Quizá ni siquiera te des cuenta de las veces que te miro o de lo mucho que me alegra encontrarte, pero para mí sigues siendo esa persona que destaca entre tantas otras. No porque no existan más personas en el mundo, sino porque, entre todas ellas, eres tú quien quiero conocer de esa manera, eres tú quien me importa y eres tú con quien me gustaría compartir algo más que unos cuantos recuerdos.</p>
+  <p>No voy a pedirte que estés preparada ahora, ni voy a ponerle una fecha a algo que no necesita apresurarse. Si algún día llega el momento en que me digas que quieres tener novio y que te gustaría que fuera yo, me haría muy feliz. Y si ese día llega, quisiera que fuera porque tú también lo deseas, porque te sientes segura conmigo y porque, después de conocernos de verdad, ambos queremos intentarlo.</p>
+  <p>Mientras tanto, quiero aprender a disfrutar el camino. Quiero que podamos conocernos sin sentir que tenemos que llegar a algún lugar rápidamente, que podamos reírnos, conversar y compartir pequeños momentos sin que cada uno tenga que significar algo más. Quiero que tengas la libertad de descubrirme a tu ritmo, así como yo quiero seguir descubriéndote al tuyo.</p>
+  <p>No sé cuánto tiempo nos tome ni qué nos depare el futuro. Tampoco quiero pedirte que me prometas algo que todavía no sabes si deseas. Pero sí quiero que sepas que, por mi parte, no se trata de una emoción pasajera ni de querer estar contigo solamente porque me gustas. Se trata de que, cuanto más pienso en lo que quisiera vivir a tu lado, más me doy cuenta de que me gustaría que fueras tú con quien pudiera intentarlo.</p>
+  <p>Tal vez ahora nuestra historia tenga que escribirse de una manera diferente a la que imaginábamos al principio. Y está bien. No tenemos que resolverla hoy ni saber cómo termina para permitirnos seguir escribiéndola.</p>
+  <p>Tú me dijiste una vez que, a veces, basta con sentir que vale la pena quedarse un poco más, mirar un poco más de cerca y descubrir qué puede llegar a ser aquello que apenas empieza.</p>
+  <p>Y creo que eso es precisamente lo que quiero hacer contigo.</p>
+  <p>Quiero seguir aquí, conocerte sin prisas y dejar que el tiempo nos enseñe lo que todavía no sabemos. Porque, aunque hoy seamos amigos y no sepa cuándo podría cambiar eso, si algún día nuestros caminos nos llevan a intentarlo de nuevo, quiero que sea con la tranquilidad de saber que esta vez nos dimos la oportunidad de conocernos de verdad.</p>
+  <p>Y mientras ese día llega, si es que llega, hay algo que quiero que recuerdes: mis sentimientos por ti no necesitan que seas mi novia para ser sinceros, ni necesito apresurar nuestro futuro para saber que hoy eres alguien a quien quiero muchísimo.</p>
+  <p>Sigo teniendo ganas de descubrirte, Karol. Y, entre todas las cosas que todavía no sé de nuestro futuro, hay una que sí sé: si la vida me da la oportunidad de conocerte cada vez más, me gustaría aprovecharla.</p>
+  <p class="firma">Con cariño, para ti. ♡</p>
+ </article>
+ <button id="btnVolver">Volver al corazón</button>
+</section>
+
+<script>
+(function(){
+"use strict";
+var reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var s1=document.getElementById("s1"), s2=document.getElementById("s2"), s3=document.getElementById("s3");
+
+function mostrar(p){[s1,s2,s3].forEach(function(s){s.classList.toggle("on",s===p)});}
+
+/* corazones flotantes */
+function corazones(n){
+  for(var i=0;i<n;i++){
+    var h=document.createElement("span");
+    h.className="fh"; h.textContent="♥";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(12+Math.random()*18)+"px";
+    h.style.animationDuration=(6+Math.random()*5)+"s";
+    h.style.animationDelay=(Math.random()*2.5)+"s";
+    document.body.appendChild(h);
+    setTimeout(function(el){el.remove()},13000,h);
+  }
+}
+
+/* corazón de partículas (inspirado en el video) */
+var cv=document.getElementById("lienzo"), ctx=cv.getContext("2d");
+var W=400,H=420,dpr=Math.min(window.devicePixelRatio||1,2);
+cv.width=W*dpr; cv.height=H*dpr; ctx.scale(dpr,dpr);
+var cx=W/2, cy=185, sc=10, baseY=cy+17*sc+6;
+var NH=window.innerWidth<500?2600:3600;
+function R(){return Math.random();}
+function clamp(v){return v<0?0:v>1?1:v;}
+function ramp(T,a,b){return clamp((T-a)/(b-a));}
+var heart=[],ground=[],col=[],plume=[],streaks=[],i;
+function hx(t){return cx+16*Math.pow(Math.sin(t),3)*sc;}
+function hy(t){return cy-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))*sc;}
+var poly=[];for(i=0;i<120;i++){poly.push([hx(i/120*6.2832),hy(i/120*6.2832)]);}
+function dentro(x,y){var c=false;for(var a=0,b=poly.length-1;a<poly.length;b=a++){
+  if((poly[a][1]>y)!==(poly[b][1]>y)&&x<(poly[b][0]-poly[a][0])*(y-poly[a][1])/(poly[b][1]-poly[a][1])+poly[a][0])c=!c;}return c;}
+for(i=0;i<NH;i++){
+  var edge=R()<0.4, px, py;
+  if(edge){var t=R()*6.2832, q=1-R()*0.04; px=cx+(hx(t)-cx)*q; py=cy+(hy(t)-cy)*q;}
+  else{do{px=cx+(R()-.5)*34*sc; py=cy+(R()-.6)*30*sc;}while(!dentro(px,py));}
+  heart.push({x:px,y:py,th:edge?R()*0.6:R(), s:edge?1.8:0.9+R()*1.3, ph:R()*6.28, w:R()<0.18, e:edge, vx:R()-.5, vy:R()});
+}
+for(i=0;i<260;i++) ground.push({x:cx+(R()-.5)*W*0.92, y:baseY+10+(R()-.5)*16, ph:R()*6.28});
+for(i=0;i<130;i++) col.push({x:cx+(R()-.5)*70, o:R(), sp:0.5+R()*0.8, ph:R()*6.28});
+for(i=0;i<260;i++) plume.push({o:R(), sp:0.4+R()*0.6, a:(R()-.5)*2});
+for(i=0;i<36;i++) streaks.push({o:R(), sp:0.35+R()*0.5, a:(R()-.5)*2, ph:R()*6.28});
+var CI=14000, topPl=cy-60;
+
+function dibujar(T,est){
+  ctx.clearRect(0,0,W,H);
+  ctx.globalCompositeOperation="lighter";
+  var gA,hA,dens,pA,dA,fin=0;
+  if(est){gA=0;hA=1;dens=1;pA=0;dA=1;}
+  else{
+    var ent=ramp(T,2500,4500); fin=ramp(T,11000,13000);
+    gA=Math.min((1-ent)+fin,1); hA=ent*(1-fin);
+    dens=0.22+0.78*ramp(T,3500,6500);
+    pA=ramp(T,7500,9000)*(1-ramp(T,10800,12500));
+    dA=ramp(T,3000,5000)*(1-fin);
+  }
+  var k,p,u,x,y,a;
+  /* franja de chispas en el suelo */
+  if(gA>0.01) for(k=0;k<ground.length;k++){p=ground[k];
+    a=gA*(0.3+0.7*Math.abs(Math.sin(T/380+p.ph)));
+    ctx.fillStyle="rgba(255,215,235,"+a+")"; ctx.fillRect(p.x,p.y,1.3,1.3);}
+  /* columna de chispas que cae */
+  if(gA>0.01) for(k=0;k<col.length;k++){p=col[k];
+    u=(T/1000*p.sp*0.3+p.o)%1; y=10+u*(baseY);
+    x=p.x+Math.sin(u*6+p.ph)*8;
+    a=gA*Math.sin(u*3.1416)*(0.4+0.6*Math.abs(Math.sin(T/200+p.ph)));
+    ctx.fillStyle="rgba(255,225,240,"+a+")"; ctx.fillRect(x,y,1.5,1.5);}
+  /* disco brillante de la base */
+  if(dA>0.01){
+    var g=ctx.createRadialGradient(0,0,0,0,0,120);
+    g.addColorStop(0,"rgba(255,215,235,"+dA+")");
+    g.addColorStop(.35,"rgba(255,70,150,"+(0.85*dA)+")");
+    g.addColorStop(1,"rgba(255,70,150,0)");
+    ctx.save(); ctx.translate(cx,baseY+4); ctx.scale(1,0.17);
+    ctx.fillStyle=g; ctx.fillRect(-130,-130,260,260); ctx.restore();
+  }
+  /* halo suave del corazón */
+  if(hA>0.01){
+    var h=ctx.createRadialGradient(cx,cy,10,cx,cy,175);
+    h.addColorStop(0,"rgba(255,40,120,"+(0.30*hA+0.15*pA)+")"); h.addColorStop(1,"rgba(255,40,120,0)");
+    ctx.fillStyle=h; ctx.fillRect(0,0,W,H);
+  }
+  /* partículas del corazón */
+  var pulso=est?1:1+0.02*hA*Math.sin(T/400), jit=pA*6;
+  if(hA>0.01) for(k=0;k<heart.length;k++){p=heart[k];
+    if(p.th>dens) continue;
+    x=p.x; y=p.y;
+    if(fin>0){x+=p.vx*fin*80; y+=p.vy*fin*110+fin*fin*70;}
+    if(jit>0){x+=(R()-.5)*jit*(1+p.vy); y+=(R()-.5)*jit;}
+    x=cx+(x-cx)*pulso; y=cy+(y-cy)*pulso;
+    a=hA*clamp(0.6+0.4*Math.sin(T/300+p.ph)+pA*0.3)*(p.e?1:0.8);
+    ctx.fillStyle=p.w?"rgba(255,235,245,"+a+")":(p.e?"rgba(255,120,180,"+a+")":"rgba(255,70,150,"+a+")");
+    ctx.fillRect(x,y,p.s,p.s);
+  }
+  /* columna de luz que sube por dentro */
+  if(pA>0.02){
+    var c=ctx.createRadialGradient(cx,baseY-35,5,cx,baseY-35,85);
+    c.addColorStop(0,"rgba(255,190,225,"+(0.6*pA)+")"); c.addColorStop(1,"rgba(255,70,150,0)");
+    ctx.fillStyle=c; ctx.fillRect(cx-100,baseY-130,200,160);
+    for(k=0;k<plume.length;k++){p=plume[k];
+      u=(T/1000*p.sp+p.o)%1; y=baseY-u*(baseY-topPl); x=cx+p.a*(25+u*100);
+      a=pA*Math.sin(u*3.1416)*0.9;
+      ctx.fillStyle="rgba(255,175,215,"+a+")"; ctx.fillRect(x,y,1.8,1.8);}
+    ctx.lineWidth=1.2;
+    for(k=0;k<streaks.length;k++){p=streaks[k];
+      u=(T/1000*p.sp+p.o)%1;
+      ctx.strokeStyle="rgba(255,200,230,"+(pA*0.75*Math.sin(u*3.1416))+")";
+      ctx.beginPath();
+      for(var j=0;j<6;j++){var uu=u-j*0.03;
+        x=cx+p.a*(20+uu*100)+Math.sin(uu*9+p.ph)*14; y=baseY-uu*(baseY-topPl);
+        if(j===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);}
+      ctx.stroke();}
+  }
+}
+var t0=null, raf;
+function bucle(ts){
+  if(t0===null)t0=ts;
+  dibujar((ts-t0)%CI,false);
+  raf=requestAnimationFrame(bucle);
+}
+function iniciarCorazon(){
+  cancelAnimationFrame(raf);
+  if(reducir){dibujar(0,true);return;}
+  t0=null; raf=requestAnimationFrame(bucle);
+}
+
+/* botones y sobre */
+var sobre=document.getElementById("sobre"), abierto=false;
+document.getElementById("btnAbrir").addEventListener("click",function(){
+  mostrar(s2); cancelAnimationFrame(raf); corazones(6);
+});
+function abrirSobre(){
+  if(abierto)return; abierto=true;
+  sobre.classList.add("open");
+  document.getElementById("pista").style.opacity=0;
+  setTimeout(function(){mostrar(s3); s3.scrollTop=0; corazones(10);}, reducir?200:2100);
+}
+sobre.addEventListener("click",abrirSobre);
+sobre.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();abrirSobre();}});
+document.getElementById("btnVolver").addEventListener("click",function(){
+  abierto=false; sobre.classList.remove("open");
+  document.getElementById("pista").style.opacity=1;
+  mostrar(s1); iniciarCorazon();
+});
+
+iniciarCorazon();
+})();
+</script>
+</body>
+</html>
